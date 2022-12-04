@@ -19,12 +19,16 @@ class Day03
     ALPHABET.index((compartment_1 & compartment_2).first) + 1
   end
 
+  def badge_priority(rucksacks)
+    ALPHABET.index(rucksacks.map(&:chars).reduce(:&).first) + 1
+  end
+
   def solve_part_1
     rucksacks.map(&method(:reorganized_item_priority)).sum
   end
 
   def solve_part_2
-    rucksacks.count
+    rucksacks.each_slice(3).sum(&method(:badge_priority))
   end
 
   def solve

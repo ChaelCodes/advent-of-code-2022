@@ -48,6 +48,22 @@ RSpec.describe Day03 do
     end
   end
 
+  describe "#badge_priority" do
+    subject { solution.badge_priority(rucksacks) }
+
+    context "with group r" do
+      let(:rucksacks) { %w[vJrwpWtwJgWrhcsFMMfFFhFp jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL PmmdzqPrVvPwwTWBwg] }
+
+      it { is_expected.to eq 18 }
+    end
+
+    context "with group r" do
+      let(:rucksacks) { %w[wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn ttgJtRGJQctTZtZT CrZsJsPPZsGzwwsLwLmpwMDw] }
+
+      it { is_expected.to eq 52 }
+    end
+  end
+
   describe "#solve" do
     subject { solution.solve }
 
@@ -55,10 +71,10 @@ RSpec.describe Day03 do
       it { is_expected.to eq 8349 }
     end
 
-    xcontext "for part 2" do
+    context "for part 2" do
       let(:solution) { described_class.new(part: 2) }
 
-      it { is_expected.to eq 0 }
+      it { is_expected.to eq 2681 }
     end
   end
 end
