@@ -1,8 +1,10 @@
 class Day03
-  attr_accessor :records, :part
+  attr_accessor :rucksacks, :part
+
+  ALPHABET = [*'a'..'z', *'A'..'Z']
 
   def initialize(part: 1)
-    self.records = inputs
+    self.rucksacks = inputs
     self.part = part
   end
 
@@ -11,12 +13,18 @@ class Day03
     File.readlines("./inputs/day_#{day_match[:number]}.txt").map(&:chomp)
   end
 
+  def reorganized_item_priority(rucksack)
+    compartment_1 = rucksack[0...rucksack.length/2].chars
+    compartment_2 = rucksack[rucksack.length/2..].chars
+    ALPHABET.index((compartment_1 & compartment_2).first) + 1
+  end
+
   def solve_part_1
-    records.count
+    rucksacks.map(&method(:reorganized_item_priority)).sum
   end
 
   def solve_part_2
-    records.count
+    rucksacks.count
   end
 
   def solve
