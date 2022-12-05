@@ -11,11 +11,21 @@ class Day04
     File.readlines("./inputs/day_#{day_match[:number]}.txt").map(&:chomp)
   end
 
-  def overlapping_assignments(assignment_pair)
+  def assignment_ranges(assignment_pair)
     assignments = assignment_pair.match /(?<start_1>\d+)-(?<end_1>\d+),(?<start_2>\d+)-(?<end_2>\d+)/
     assignment_1 = (assignments[:start_1].to_i..assignments[:end_1].to_i)
     assignment_2 = (assignments[:start_2].to_i..assignments[:end_2].to_i)
+    [assignment_1, assignment_2]
+  end
+
+  def overlapping_assignments(assignment_pair)
+    assignment_1, assignment_2 = assignment_ranges(assignment_pair)
     assignment_1.cover?(assignment_2) || assignment_2.cover?(assignment_1)
+  end
+
+  def any_overlapping_assignments(assignment_pair)
+    assignment_1, assignment_2 = assignment_ranges(assignment_pair)
+    assignment_1.include?(assignment_2.begin) || assignment_2.include?(assignment_1.begin)
   end
 
   def solve_part_1
@@ -23,7 +33,7 @@ class Day04
   end
 
   def solve_part_2
-    records.count
+    assignment_pairs.count(&method(:any_overlapping_assignments))
   end
 
   def solve
