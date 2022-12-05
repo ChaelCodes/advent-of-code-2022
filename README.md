@@ -8,6 +8,7 @@ Our 2022 leaderboard for Advent of Code is `219042-9f06f774`. Enter the code on 
 # Solutions
 Each solution goes in a separate branch/PR, so you can review that day.
 
+- [Day One](#2)
 
 # Previous Years
 
@@ -34,3 +35,10 @@ Run `rake new_day[1]` in order to create a new set of solution, input, and spec 
 
 ## Debugging
 Put `binding.irb` anywhere to pry into the method while running the spec. `exit!` will exit the debugging session.
+
+# Advent of Code
+Santa's reindeer typically eat regular reindeer food, but they need a lot of [magical energy](https://adventofcode.com/2018/day/25) to deliver presents on Christmas. For that, their favorite snack is a special type of **star** fruit that only grows deep in the jungle. The Elves have brought you on their annual expedition to the grove where the fruit grows.
+
+To supply enough magical energy, the expedition needs to retrieve a minimum of **fifty stars** by December 25th. Although the Elves assure you that the grove has plenty of fruit, you decide to grab any fruit you see along the way, just in case.
+
+Collect stars by solving puzzles. Two puzzles will be made available on each day in the Advent calendar; the second puzzle is unlocked when you complete the first. Each puzzle grants **one star**. Good luck!
