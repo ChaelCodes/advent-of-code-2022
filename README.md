@@ -11,6 +11,7 @@ Each solution goes in a separate branch/PR, so you can review that day.
 - [Day One](https://github.com/ChaelCodes/advent-of-code-2022/pull/2)
 - [Day Two](https://github.com/ChaelCodes/advent-of-code-2022/pull/3)
 - [Day Three](https://github.com/ChaelCodes/advent-of-code-2022/pull/4)
+- [Day Four](https://github.com/ChaelCodes/advent-of-code-2022/pull/5)
 
 # Previous Years
 
