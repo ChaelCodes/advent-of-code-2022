@@ -8,7 +8,8 @@ Our 2022 leaderboard for Advent of Code is `219042-9f06f774`. Enter the code on 
 # Solutions
 Each solution goes in a separate branch/PR, so you can review that day.
 
-- [Day One](#2)
+- [Day One](https://github.com/ChaelCodes/advent-of-code-2022/pull/2)
+- [Day Two](https://github.com/ChaelCodes/advent-of-code-2022/pull/3)
 
 # Previous Years
 
