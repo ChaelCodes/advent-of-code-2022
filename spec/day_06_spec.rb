@@ -9,10 +9,11 @@ RSpec.describe Day06 do
   end
 
   describe "#first_marker" do
-    subject { solution.first_marker }
+    subject { solution.first_marker(length) }
 
     context "with sample 1" do
       let(:datastream) { "mjqjpqmgbljsphdztnvjfqwrcgsmlb" }
+      let(:length) { 4 }
 
       it { is_expected.to eq "jpqm" }
     end
@@ -24,7 +25,7 @@ RSpec.describe Day06 do
     context "with sample 1" do
       let(:datastream) { "mjqjpqmgbljsphdztnvjfqwrcgsmlb" }
 
-      it { is_expected.to eq 7 }
+      it { is_expected.to eq 3 }
     end
   end
 
@@ -35,10 +36,16 @@ RSpec.describe Day06 do
       it { is_expected.to eq 1816 }
     end
 
-    xcontext "for part 2" do
+    context "for part 2" do
       let(:solution) { described_class.new(part: 2) }
 
-      it { is_expected.to eq 0 }
+      it { is_expected.to eq 2625 }
+
+      context "with sample data" do
+        let(:solution) { described_class.new(part: 2, datastream: "mjqjpqmgbljsphdztnvjfqwrcgsmlb") }
+
+        it { is_expected.to eq 19 }
+      end
     end
   end
 end

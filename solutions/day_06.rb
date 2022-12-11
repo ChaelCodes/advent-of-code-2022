@@ -11,30 +11,30 @@ class Day06
     File.readlines("./inputs/day_#{day_match[:number]}.txt", chomp: true)[0]
   end
 
-  def find_markers
+  def find_markers(length)
     markers = []
-    datastream.chars.each_cons(4) do |char_array|
-      if char_array.uniq.count == 4
+    datastream.chars.each_cons(length) do |char_array|
+      if char_array.uniq.count == length
         markers << char_array.join
       end
     end
     markers
   end
 
-  def first_marker
-    find_markers.first
+  def first_marker(length)
+    find_markers(length).first
   end
 
   def index_of_marker(marker)
-    datastream.index(marker) + 4
+    datastream.index(marker)
   end
 
   def solve_part_1
-    index_of_marker(first_marker)
+    index_of_marker(first_marker(4)) + 4
   end
 
   def solve_part_2
-    records.count
+    index_of_marker(first_marker(14)) + 14
   end
 
   def solve
