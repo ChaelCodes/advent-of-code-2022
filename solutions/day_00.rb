@@ -8,7 +8,7 @@ class Day00
 
   def inputs
     day_match = self.class.name.match(/Day(?<number>\d+)/)
-    File.readlines("./inputs/day_#{day_match[:number]}.txt").map(&:chomp)
+    File.readlines("./inputs/day_#{day_match[:number]}.txt", chomp: true)
   end
 
   def solve_part_1
@@ -27,5 +27,3 @@ class Day00
     end
   end
 end
-
-Day00.new.solve

@@ -8,7 +8,7 @@ class Day01
 
   def inputs
     day_match = self.class.name.match(/Day(?<number>\d+)/)
-    input = File.readlines("./inputs/day_#{day_match[:number]}.txt").map(&:chomp).chunk_while {|i, j| j != "" }
+    input = File.readlines("./inputs/day_#{day_match[:number]}.txt", chomp: true).chunk_while {|i, j| j != "" }
     elves_calories = input.map do |elf_snacks|
       elf_snacks.map(&:to_i).sum
     end
