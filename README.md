@@ -6,7 +6,7 @@ My Advent of Code solutions for 2022! [Advent of Code](https://adventofcode.com/
 Our 2022 leaderboard for Advent of Code is `219042-9f06f774`. Enter the code on the [leaderboard page](https://adventofcode.com/2022/leaderboard/private) to join.
 
 # Solutions
-Each solution goes in a separate branch/PR, so you can review that day.
+Each solution goes in a [separate branch](https://github.com/ChaelCodes/advent-of-code-2022/branches/all)/PR, so you can review that day.
 
 - [Day One](https://github.com/ChaelCodes/advent-of-code-2022/pull/2)
 - [Day Two](https://github.com/ChaelCodes/advent-of-code-2022/pull/3)
