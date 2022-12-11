@@ -133,10 +133,42 @@ RSpec.describe Day07 do
       end
     end
 
-    xcontext "for part 2" do
-      let(:solution) { described_class.new(part: 2) }
+    context "for part 2" do
+      let(:solution) { described_class.new(part: 2, terminal_history: terminal_history) }
 
-      it { is_expected.to eq 0 }
+      it { is_expected.to eq 12390492 }
+
+      context "with sample data" do
+        let(:terminal_history) do
+          [
+            "$ cd /",
+            "$ ls",
+            "dir a",
+            "14848514 b.txt",
+            "8504156 c.dat",
+            "dir d",
+            "$ cd a",
+            "$ ls",
+            "dir e",
+            "29116 f",
+            "2557 g",
+            "62596 h.lst",
+            "$ cd e",
+            "$ ls",
+            "584 i",
+            "$ cd ..",
+            "$ cd ..",
+            "$ cd d",
+            "$ ls",
+            "4060174 j",
+            "8033020 d.log",
+            "5626152 d.ext",
+            "7214296 k"
+          ]
+        end
+
+        it { is_expected.to eq 24933642 }
+      end
     end
   end
 end

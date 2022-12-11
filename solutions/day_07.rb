@@ -3,6 +3,8 @@ class Day07
 
   COMMAND_REGEX = /^\$ (?<command>(cd|ls))\s?(?<directory>(\w+|\.\.|\/))?/
   LS_OUTPUT_REGEX = /^(?<dir>dir)?(?<size>\d+)? (?<name>\w+\.?\w*)/
+  TOTAL_DEVICE_STORAGE = 70_000_000
+  UPDATE_SPACE_REQUIRED = 30_000_000
 
   def initialize(part: 1, terminal_history: nil)
     self.terminal_history = terminal_history || inputs
@@ -80,13 +82,27 @@ class Day07
     end.sum
   end
 
+  def traverse_tree_for_candidates(directory, space_needed)
+    return unless directory.size >= space_needed
+    smallest_child = directory.directories.map do |dir|
+      if dir.size >= space_needed
+        traverse_tree_for_candidates(dir, space_needed)
+      end
+    end.compact.min_by(&:size)
+    smallest_child || directory
+  end
+
+
   def solve_part_1
     terminal_history.each(&method(:parse_history))
     traverse_tree(file_tree.directories)
   end
 
   def solve_part_2
-    terminal_history.count
+    terminal_history.each(&method(:parse_history))
+    unused_space = TOTAL_DEVICE_STORAGE - file_tree.size
+    space_needed_for_update = UPDATE_SPACE_REQUIRED - unused_space
+    traverse_tree_for_candidates(file_tree, space_needed_for_update).size
   end
 
   def solve
