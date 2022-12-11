@@ -27,5 +27,3 @@ class Day00
     end
   end
 end
-
-Day00.new.solve
