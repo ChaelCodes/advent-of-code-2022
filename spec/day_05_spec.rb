@@ -29,8 +29,8 @@ RSpec.describe Day05 do
     end
   end
 
-  describe "#move_crate" do
-    subject { solution.move_crate(instruction) }
+  describe "#move_crates" do
+    subject { solution.run_instruction(instruction) }
     let(:instruction) { "move 1 from 2 to 1" }
 
     before do
@@ -49,6 +49,28 @@ RSpec.describe Day05 do
         3 => %w[P]
       })
     end
+
+    context "part 2" do
+      let(:solution) { described_class.new(part: 2) }
+      let(:instruction) { "move 3 from 1 to 3" }
+
+      before do
+        solution.crates = {
+          1 => %w[Z N D],
+          2 => %w[M C],
+          3 => %w[P]
+        }
+      end
+
+      it "moves the crates" do
+        subject
+        expect(solution.crates).to eq({
+          1 => %w[],
+          2 => %w[M C],
+          3 => %w[P Z N D]
+        })
+      end
+    end
   end
 
   describe "#answer" do
@@ -64,10 +86,10 @@ RSpec.describe Day05 do
       it { is_expected.to eq "VJSFHWGFT" }
     end
 
-    xcontext "for part 2" do
+    context "for part 2" do
       let(:solution) { described_class.new(part: 2) }
 
-      it { is_expected.to eq 0 }
+      it { is_expected.to eq "LCTQFBVZV" }
     end
   end
 end

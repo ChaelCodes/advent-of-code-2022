@@ -16,34 +16,30 @@ class Day05
     File.readlines("./inputs/day_#{day_match[:number]}.txt", chomp: true)
   end
 
-  def move_crate(instruction)
+  def run_instruction(instruction)
     parsed_instruction = instruction.match(/move (?<crate_count>\d+) from (?<from_stack>\d+) to (?<to_stack>\d+)/)
     crate_count, from_stack, to_stack = parsed_instruction[:crate_count].to_i, parsed_instruction[:from_stack].to_i, parsed_instruction[:to_stack].to_i
-    crate_count.times { crates[to_stack] << crates[from_stack].pop }
+    move_crates(crate_count, from_stack, to_stack)
+  end
+
+  def move_crates(crate_count, from_stack, to_stack)
+    if part == 1
+      crate_count.times { crates[to_stack] << crates[from_stack].pop }
+    else
+      crates[to_stack].concat(crates[from_stack].pop(crate_count))
+    end
   end
 
   def run_instructions
-    instructions.each(&method(:move_crate))
+    instructions.each(&method(:run_instruction))
   end
 
   def answer
     crates.values.map(&:last).join
   end
 
-  def solve_part_1
+  def solve
     run_instructions
     answer
-  end
-
-  def solve_part_2
-    instructions.count
-  end
-
-  def solve
-    if part == 1
-      solve_part_1
-    else
-      solve_part_2
-    end
   end
 end
