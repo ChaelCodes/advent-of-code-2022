@@ -13,6 +13,7 @@ Each solution goes in a separate branch/PR, so you can review that day.
 - [Day Three](https://github.com/ChaelCodes/advent-of-code-2022/pull/4)
 - [Day Four](https://github.com/ChaelCodes/advent-of-code-2022/pull/5)
 - [Day Five](https://github.com/ChaelCodes/advent-of-code-2022/pull/6)
+- [Day Six](https://github.com/ChaelCodes/advent-of-code-2022/pull/7)
 
 # Previous Years
 
